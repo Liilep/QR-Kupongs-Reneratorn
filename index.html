@@ -314,9 +314,9 @@
 </head>
 <body>
   <div class="page">
-    <h1>Augusts QR- & Biljettverktyg</h1>
+    <h1>Augusts QR- & Kupongverktyg</h1>
     <p class="lead">
-      Steg 1: Skapa QR-koder från URL:er. Steg 2: Lägg dem på en mallbild och generera A4-PDF med 6 biljetter per sida.
+      Steg 1: Skapa QR-koder från URL:er/Koder. Steg 2: Lägg dem på en mallbild och generera A4-PDF med 6 biljetter per sida.
     </p>
 
     <!-- STEG 1: GENERERA QR-KODER -->
@@ -324,7 +324,7 @@
       <h2><span class="badge">1</span> Skapa QR-koder</h2>
 
       <div class="field-group">
-        <label for="urlList">URL:er (en per rad)</label>
+        <label for="urlList">URL:er/Koder (en per rad)</label>
         <textarea id="urlList" placeholder="https://exempel.com&#10;https://openai.com"></textarea>
         <div class="help">
           Varje rad blir en egen QR-kod.
@@ -425,18 +425,18 @@
 
       <!-- FÖRHANDSVISNING -->
       <div class="field-group">
-        <label>Förhandsvisning (en biljett)</label>
+        <label>Förhandsvisning (En kupong)</label>
         <!-- Canvas med proportioner som motsvarar en "cell" på A4 -->
         <canvas id="previewCanvas" width="380" height="356"></canvas>
         <div class="help">
-          Visar ungefär var QR-koden hamnar på en biljett. Samma logik som PDF:en använder.
+          Visar ungefär var QR-koden hamnar på en kupong. Samma logik som PDF:en använder.
         </div>
       </div>
 
       <div class="field-group">
         <button id="generatePdfBtn" type="button">Generera PDF (6 per A4)</button>
         <div class="muted">
-          Biljetter skapas i ordning, en per QR-kod. Behöver du många kan det ta några sekunder.
+          Kuponger skapas i ordning, en per QR-kod. Behöver du många kan det ta några sekunder.
         </div>
         <div id="pdfStatusText" class="status status--info"></div>
       </div>
@@ -662,7 +662,7 @@
       });
     }
 
-    // --- FÖRHANDSVISNING AV BILJETT ---
+    // --- FÖRHANDSVISNING AV KUPONG ---
     function drawPreview() {
       const canvas = document.getElementById("previewCanvas");
       if (!canvas) return;
